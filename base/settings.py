@@ -71,6 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends', # add this
+                'social_django.context_processors.login_redirect', # add this
             ],
         },
     },
@@ -108,6 +110,40 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Configuración RRSS
+# Facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '417700986031313'        # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'becff466d6cc44ddd198c018a2783e37'  # App Secret
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link'] # add this
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {       # add this
+  'fields': 'id, name, email, picture.type(large), link'
+}
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [                 # add this
+    ('name', 'name'),
+    ('email', 'email'),
+    ('picture', 'picture'),
+    ('link', 'profile_url'),
+]
+
+#Instagram
+SOCIAL_AUTH_INSTAGRAM_KEY = '417700986031313'          #Client ID
+SOCIAL_AUTH_INSTAGRAM_SECRET = 'becff466d6cc44ddd198c018a2783e37'  #Client SECRET
+SOCIAL_AUTH_INSTAGRAM_EXTRA_DATA = [         ('user', 'user'),
+]
+
+# Linkedin
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '77by3lli4gc7nn'         #Client ID
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'sQvGl2IH2Qry0VJW'  #Client Secret
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_basicprofile', 'r_emailaddress']
+SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = ['email-address', 'formatted-name', 'public-profile-url', 'picture-url']
+SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [
+    ('id', 'id'),
+    ('formattedName', 'name'),
+    ('emailAddress', 'email_address'),
+    ('pictureUrl', 'picture_url'),
+    ('publicProfileUrl', 'profile_url'),
+]
+
 # Configuración parametros autenticacion
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
@@ -117,9 +153,9 @@ LOGOUT_REDIRECT_URL = 'login'
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-cl'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Santiago'
 
 USE_I18N = True
 
