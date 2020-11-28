@@ -1,0 +1,10 @@
+Entorno venv: 
+1. python -m venv entorno
+2. entorno\Script\activate 
+3. Instalar librerias o paquetes con pip install [libreria]
+4. Crear archivo txt requeriments.txt y agregar las librerias con pip freeze
+
+Entorno pipenv 
+1. pip install pipenv
+2. pipenv shell
+3. pipenv install [libreria] 
